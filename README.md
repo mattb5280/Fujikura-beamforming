@@ -16,52 +16,39 @@
 
 | Version |     | Date         |     | Comment                                               |     |
 |---------|-----|--------------|-----|-------------------------------------------------------|-----|
-| 1.0     |     | Dec 5, 2023  |     | Initial public release with RFSoC Explorer 3.0        |     |
+| 1.0     |     | Dec 5, 2023  |     | Initial public release with Avnet RFSoC Explorer 3.0        |     |
 |         |     |              |     |                                                       |     |
 |         |     |              |     |                                                       |     |
 # Table of contents
 
-1. [Overview](#1-overview)
-
-2. [AMD ZCU208 Evaluation Board](#zcu208-board)
-
-3. [uSD Card Preparation](#usd-card-preparation)
-
-4. [Connecting the ZCU208 to your PC](#connecting-the-zcu208-to-your-pc)
-
-    4.1. [Serial Port Connection](#41-serial-port-connection)
-
-    4.2. [Getting the IP Address](#42-getting-the-ip-address)
-
-    4.3. [Setting a Static IP Address](#43-setting-a-static-ip-address)
-
-5. [Connecting the Fujikura PAAM Daughtercard](#connecting-the-fujikura-paam-carrier)
-
-    5.1. [Connecting Power and the Digital Interface](#connecting-power-and-the-digital-interface)
-
-    5.2. [Using the C# Test GUI (optional)](#using-the-c-test-gui-optional)
-
-    5.3. [Connecting the Analog Path and Instruments](#connecting-the-analog-path-and-instruments)
-
-6. [Using the CLK-104 Module](#using-the-clk-104-module)
-
-7. [Installing MATLAB and Avnet RFSoC Explorer®](#installing-matlab-and-avnet-rfsoc-explorer)
-
-    7.1. [Setting up Python Support in Matlab](#setting-up-python-support-in-matlab)
-   
-    7.1.1 [Setting the Python version in MATLAB](#setting-the-python-version-in-matlab)
-
-8. [Testing the RFSoC Explorer Digital Interface](#testing-the-rfsoc-explorer-digital-interface)
-
-9. [Renesas 8V97003 18 GHz RF Synthesizer](#renesas-8v97003-18-ghz-rf-synthesizer)
-
-10. [Fixture for the Daughtercard](#fixture-for-the-daughtercard)
-
-    10.1 [Daughtercard installation on the fixing stand](#daughtercard-installation-on-the-fixing-stand)
-
-11. [Over-the-air Testing with Rohde & Schwarz ATS800B compact antenna test range](#over-the-air-testing)
-
-12. [Terminology](#terminology)
+- [Document Control](#document-control)
+- [Version History](#version-history)
+- [Table of contents](#table-of-contents)
+- [Figures](#figures)
+- [1) Overview ](#1-overview-)
+- [2) AMD ZCU208 Evaluation Board ](#2-amd-zcu208-evaluation-board-)
+- [3) uSD Card Preparation ](#3-usd-card-preparation-)
+- [4 Connecting the ZCU208 to your PC ](#4-connecting-the-zcu208-to-your-pc-)
+  - [4.1 Serial Port Connection ](#41-serial-port-connection-)
+  - [4.2 Getting the IP Address ](#42-getting-the-ip-address-)
+  - [4.3 Setting a Static IP Address ](#43-setting-a-static-ip-address-)
+- [5 Connecting the Fujikura PAAM Daughtercard ](#5-connecting-the-fujikura-paam-daughtercard-)
+  - [5.1 Connecting Power and the Digital Interface ](#51-connecting-power-and-the-digital-interface-)
+  - [5.2 Using the C# Test GUI (optional) ](#52-using-the-c-test-gui-optional-)
+  - [5.3 Connecting the Analog Path and Instruments ](#53-connecting-the-analog-path-and-instruments-)
+- [6 Using the CLK-104 Module ](#6-using-the-clk-104-module-)
+    - [6.1 Advanced Control of CLK104 ](#61-advanced-control-of-clk104-)
+- [7 Installing MATLAB and Avnet RFSoC Explorer® ](#7-installing-matlab-and-avnet-rfsoc-explorer-)
+  - [7.1 Setting up Python Support in MATLAB ](#71-setting-up-python-support-in-matlab-)
+    - [7.1.1 Setting the Python version in MATLAB ](#711-setting-the-python-version-in-matlab-)
+- [8) Testing Avnet RFSoC Explorer Digital Interface ](#8-testing-avnet-rfsoc-explorer-digital-interface-)
+- [9) Renesas 8V97003 18 GHz RF Synthesizer ](#9-renesas-8v97003-18-ghz-rf-synthesizer-)
+- [10) Fixture for the Daughtercard ](#10-fixture-for-the-daughtercard-)
+  - [10.1 Daughtercard installation on the fixing stand ](#101-daughtercard-installation-on-the-fixing-stand-)
+- [11) Over-the-air Testing with Rohde \& Schwarz ATS800B compact antenna test range (CATR) ](#11-over-the-air-testing-with-rohde--schwarz-ats800b-compact-antenna-test-range-catr-)
+- [TX EVM Measurement](#tx-evm-measurement)
+- [Opposite EVM Measurement(2 kits)](#opposite-evm-measurement2-kits)
+- [12) Terminology ](#12-terminology-)
 
 # Figures
 
@@ -118,9 +105,9 @@ style="width:6.49236in;height:3.63403in" />
 
 Figure 1 – 5G mmWave PAAM Development Platform
 
-# 2) AMD ZCU208 Evaluation Board <a name="zcu208-board"></a>
+# 2) AMD Zynq UltraScale+ RFSoC ZCU208 Evaluation Kit <a name="zcu208-board"></a>
 
-For instructions on setting up the ZCU208, please refer to the [ZCU208
+For instructions on setting up the MD Zynq UltraScale+ RFSoC ZCU208 Evaluation Kit, please refer to the [ZCU208
 User Guide](https://docs.xilinx.com/v/u/en-US/ug1410-zcu208-eval-bd) and
 the guide for [ZCU208 Software Install and Board
 Setup](https://www.xilinx.com/support/documents/boards_and_kits/zcu208/2020_1/xtp607-zcu208-setup-c-2020-1.pdf).
@@ -132,8 +119,7 @@ diagram.
 
 Figure 2 – AMD ZCU208 Evaluation Board
 
-<span class="mark">  
-(1)</span> Marks the uSD card slot J23
+(1)<span class="mark"> Marks the uSD card slot J23
 
 <span class="mark">(2)</span> Marks the micro USB Type B serial cable
 connector J24 that goes to the PC
@@ -141,6 +127,7 @@ connector J24 that goes to the PC
 <span class="mark">(3)</span> Marks the Ethernet cable connector P1
 
 <span class="mark">(4)</span> Marks the power connector J50 and
+
 <span class="mark">(5)</span> marks the power ON/OFF switch SW15
 
 <span class="mark">(6)</span> Marks the FMC+ connector J28 for the
@@ -387,7 +374,7 @@ peripherals are:
 A Linux utility, **fjk_tcp**, runs on the ZCU208 and processes
 communications from a host in the form of JSON strings via Ethernet port
 8083. It is important to note that **only one host utility**, i.e.
-either RFSoC Explorer or the C# GUI, **can use that port**. So only one
+either Avnet RFSoC Explorer or the C# GUI, **can use that port**. So only one
 of the two can be used at a time.
 
 A link for downloading the C# test utility can be requested from Avnet.
@@ -432,10 +419,26 @@ TBD
 
 #  6 Using the CLK-104 Module <a name="using-the-clk-104-module"></a>
 
-The ZCU208 kit includes a CLK-104 module that plugs into J101. There are
-a few clock sources on this module and the LMK04828 output is available
-as OUTPUT_REF on the J10 SMA connector. This can be connected to the PLL
-input REF_EXT, which is CN12 on the Fujikura Daughtercard.
+The Zynq UltraScale+ RFSoC ZCU208 Evaluation Kit includes a CLK104 add-on module that provides ultra low-noise, wideband RF clock sources for the ZCU208 RF-ADCs and RF-DACs. 
+
+<img src="./media/CLK104.png"
+style="width:6in"/>
+
+The CLK104 output reference clock (OUTPUT_REF J10 SMA connector) can be programmed from Avnet RFSoC Explorer as shown below. 
+
+<img src="./media/clk104_config.jpg"
+style="width:3.8125in"/>
+
+`>> Avnet_RFSoC_Explorer('Program_CLK104_LMK', <option>)`
+
+As a convenience, CLK104 signal OUTPUT_REF can be used as the reference for the Fujikura PAAM local oscillator PLL at input REF_EXT, which is CN12 on the Fujikura Daughtercard. For best EVM performance REF_EXT can alternatively be connected to a low phase noise lab signal generator such as Rohde & Schwarz SMW200B.
+
+> **_NOTE:_** For more information on the CLK104 module refer to [Xilinx UG1437 - CLK104 RF Clock Add-onCard](https://www.xilinx.com/support/documents/boards_and_kits/zcu216/ug1437-clk104.pdf)
+
+#  6.1 Advanced Control of CLK104 <a name="advanced-control-clk-104-module"></a>
+
+For custom control and programming of the the CLK104 module, use the **ZCU208 Board User
+Interface** as described below.
 
 The LMK04828 is managed by a TI MPS430 System Controller. The user
 interface to the System Controller is via one of the USB serial ports
@@ -455,20 +458,22 @@ After unzipping the file, run .\zcu208_bit\\ BoardUI\\**BoardUI.exe**.
 Under File/Select the system controller port, select a port. Typically,
 this enumerates as the highest number of the 3 ZCU208 USB COM ports.
 
-The way to make sure that communications with the CLK-104 module works
-is to click **Check-CLK-104**.
+The way to make sure that communications with the CLK104 module works
+is to click **Check-CLK104**.
 
 <img src="./media/image23.png" style="width:6.5in;height:0.27014in" />
 
 We want to program the LMK04828 to output 122.88MHz. This is done as
 follows:
 
-- In the release directory there is a file  
-  ZCU208 CLK-104
-  Card\\**245M76_PL_122M88_SYSREF_7M68_OUTREFCLK_122M88_TCS.txt**
+- In the release directory find the TCS file :
 
-Place this file in the folder  
-.\zcu208_bit\BoardUI\tests\ZCU208\\**clockFiles\lmk04828**\\
+> ZCU208 CLK-104 Card\245M76_PL_122M88_SYSREF_7M68_OUTREFCLK_122M88_TCS.txt
+
+
+Place this file in the folder :
+
+    .\zcu208_bit\BoardUI\tests\ZCU208\\clockFiles\lmk04828\
 
 - As in the diagram below, select the LMK04828 file to program.
 
@@ -485,61 +490,51 @@ Interface to the CLK-104 Module
 
 #  7 Installing MATLAB and Avnet RFSoC Explorer® <a name="installing-matlab-and-avnet-rfsoc-explorer"></a>
 
-Avnet RFSoC Explorer provides native connection to MATLAB ® and Simulink
-®, featuring graphical control of the platform and intuitive APIs for
-programmatic access.
+Avnet RFSoC Explorer® is a MATLAB toolbox that enables control of AMD Zynq™ UltraScale+™ RFSoC evaluation boards using MATLAB and Simulink. The toolbox includes a graphical interface and an intuitive API for programmatic control of all RF-ADC and RF-DAC parameters, signal generation and acquisition. System designers and test engineers who want to experiment with OTA signals can use Avnet RFSoC Explorer to control supported RF front-end cards.
 
-<img src="./media/image25.jpeg" style="width:6.5in;height:3.15in" />
+<img src="./media/avnet_rfsoc_explorer_zcu208_fujikura_paam_system_diagram.jpg" style="width:6.5in" />
 
-Your computer will need the following MathWorks software.
+Your computer will need the following MathWorks software :
 
 - MATLAB ([supported
   versions](https://www.mathworks.com/matlabcentral/fileexchange/73665-avnet-rfsoc-explorer))
-
 - DSP System Toolbox
-
 - Fixed-Point Designer
-
 - Communications Toolbox
-
 - Signal Processing Toolbox
 
-- Install one of the following support packages from the MATLAB Add-On
-  Manager
+[Get a Free MATLAB Trial Package for RFSoC](https://www.mathworks.com/rfsoc)
 
-<!-- -->
-
-- Communications Toolbox Support Package for Xilinx Zynq-Based Radio
+Also, install one of the following support packages from the MATLAB Add-On Manager :
 
 - HDL Coder Support Package for Xilinx RFSoC Devices
-
 - SoC Blockset Support Package for Xilinx Devices
 
-Optional toolboxes for working with standards-compliant waveforms in
-RFSoC Explorer
+Optional toolboxes for working with standards-compliant waveforms in Avnet RFSoC Explorer
 
-- LTE Toolbox (optional)
+- [MATLAB LTE Toolbox](https://www.mathworks.com/products/lte.html) (optional)
+- [MATLAB 5G Toolbox](https://www.mathworks.com/products/5g.html) (optional)
 
-- 5G Toolbox (optional)
-
-[Get a Free MATLAB Trial Package for
-RFSoC](https://www.mathworks.com/rfsoc)
-
-RFSoC Explorer installs easily using the MATLAB Add-Ons store.
+Avnet RFSoC Explorer installs easily from the MATLAB Add-Ons store.
 
 1.  From **MATLAB \> Add-Ons**, search for **Avnet RFSoC Explorer** and
     click install
 
-2.  From **MATLAB \> Add-Ons**, search for **Communications Toolbox
-    Support Package for Xilinx Zynq-Based Radio** and click install
+    <img src="./media/matlab-get-addons.jpg" style="width:4in" />
 
-3.  If prompted, click **Setup Later**
+    <img src="./media/matlab-get-rfsocX.jpg" style="width:6.5in" />
 
-<img src="./media/image26.png" style="width:6.5in;height:2.07569in" />
+2.  From **MATLAB \> Add-Ons**, search for **SoC Blockset Support Package for Xilinx Devices** and click install (alternatiely choose **HDL Coder Support Package for Xilinx RFSoC Devices**)
 
-## 7.1 Setting up Python Support in Matlab <a name="setting-up-python-support-in-matlab"></a>
+    <img src="./media/socb-xilinx-sppkg-addon-explorer.jpg" style="width:6.5in" />
 
-RFSoC Explorer has been tested with [Python
+3.  If prompted to setup your board, click **Setup Later**
+
+    <img src="./media/socb-xilinx-sppkg-addon-explorer-setup-later.jpg" style="width:6.5in" />
+
+## 7.1 Setting up Python Support in MATLAB <a name="setting-up-python-support-in-matlab"></a>
+
+Avnet RFSoC Explorer has been tested with [Python
 3.9.13](https://www.python.org/downloads/release/python-3913/), but
 earlier/later releases may also work.
 
@@ -604,14 +599,14 @@ ans =
  ExecutionMode: InProcess
 ```
 
-# 8) Testing the RFSoC Explorer Digital Interface <a name="testing-the-rfsoc-explorer-digital-interface"></a>
+# 8) Testing Avnet RFSoC Explorer Digital Interface <a name="testing-the-rfsoc-explorer-digital-interface"></a>
 
 In MATLAB, enter:
 ```
 >> Avnet_RFSoC_Explorer('startup', 'board_id', 7)
 ```
 
-This should bring up the RFSoC Explorer GUI. If you have not connected
+This should bring up the Avnet RFSoC Explorer GUI. If you have not connected
 to a ZCU208 before, the IP address should be red and “DISCONNECTED, as
 below’.
 
@@ -633,7 +628,7 @@ Once connected:
 
 2.  Click **<span class="mark">Init</span>** .
 
-3.  RFSoC Explorer should now start using Python scripts and JSON
+3.  Avnet RFSoC Explorer should now start using Python scripts and JSON
     messages to initialize the PAAM Daughtercard. If it cannot
     communicate with the PAAM, you will get a dialog to apply PAAM
     power. Make sure that the Daughtercard power ON/OFF switch SW1 is in
@@ -643,7 +638,7 @@ Once connected:
 <img src="./media/image30a.png"
 style="width:6.00672in;height:3.25364in" />
 
-4.  RFSoC Explorer should now continue initializing the PAAM. This can
+4.  Avnet RFSoC Explorer should now continue initializing the PAAM. This can
     take 40 seconds to complete.
 
 <img src="./media/image31a.png"
@@ -705,8 +700,8 @@ Example RF synthesizer settings in fractional mode for desired RF frequency
 | *PLL input frequency*      | 122.880 MHz | Set by user                                           |
 | *PLL input doubler(D)*     | On          | Set by user                                           |
 | *PLL input divider(R)* = 1 | 1           | Set by user                                           |
-| *IF Frequency*             | 3.00000 GHz | Adjusted by RFSoC Explorer for desired RF frequency   |
-| *VCO Frequency*            | 6.25000 GHz | Calculated by RFSoC Explorer for desired RF frequency |
+| *IF Frequency*             | 3.00000 GHz | Adjusted by Avnet RFSoC Explorer for desired RF frequency   |
+| *VCO Frequency*            | 6.25000 GHz | Calculated by Avnet RFSoC Explorer for desired RF frequency |
 
 <img src="./media/image28.png"
 style="width:6.91587in;height:3.72024in" />
@@ -722,8 +717,8 @@ Example RF synthesizer settings in integer mode for desired RF frequency
 | *PLL input frequency*      | 122.880 MHz | Set by user                                           |
 | *PLL input doubler(D)*     | On          | Set by user                                           |
 | *PLL input divider(R)* = 1 | 1           | Set by user                                           |
-| *IF Frequency*             | 3.42400 GHz | Adjusted by RFSoC Explorer for desired RF frequency   |
-| *VCO Frequency*            | 6.14400 GHz | Calculated by RFSoC Explorer for desired RF frequency |
+| *IF Frequency*             | 3.42400 GHz | Adjusted by Avnet RFSoC Explorer for desired RF frequency   |
+| *VCO Frequency*            | 6.14400 GHz | Calculated by Avnet RFSoC Explorer for desired RF frequency |
 
 # 10) Fixture for the Daughtercard <a name="fixture-for-the-daughtercard"></a>
 
